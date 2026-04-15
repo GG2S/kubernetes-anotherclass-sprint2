@@ -6,6 +6,11 @@ pipeline {
         jdk 'jdk-17'
     }
 
+    parameters {
+        // 배포 환경 선택
+        choice(choices: ['dev', 'qa', 'prod'], name: 'PROFILE', description: '배포 환경 선택')
+    }
+
     environment {
         DOCKERHUB_USERNAME = "0770asd"
         GITHUB_USERNAME = "gg2s"
